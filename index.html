@@ -8,16 +8,51 @@
     body {
         margin: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #f4f4f2; /* Light warm grey background to make cards pop */
+        background: #f4f4f2; 
         color: #333;
         line-height: 1.6;
+        position: relative;
     }
+
+    /* Background Images for Desktop/Tablets */
+    .bg-image {
+        position: fixed;
+        top: 0;
+        width: 25%; 
+        height: 100vh;
+        z-index: -1;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* Updated Opacity for a softer, more elegant fade */
+        opacity: 0.6; 
+    }
+
+    /* Left Side Image */
+    .left-bg {
+        left: 0;
+        background-image: url('https://i.postimg.cc/ZR9TdbrQ/Left.jpg');
+        background-color: #ede9e6; 
+    }
+
+    /* Right Side Image */
+    .right-bg {
+        right: 0;
+        background-image: url('https://i.postimg.cc/mDFsrd4b/Right.jpg');
+        background-color: #ede9e6; 
+    }
+
+    /* Hide background images on mobile for readability */
+    @media (max-width: 900px) {
+        .bg-image { display: none; }
+    }
+
     .header {
-        background: #ffffff; 
-        color: #800020; /* Burgundy */
+        background: rgba(255, 255, 255, 0.95); 
+        color: #800020;
         text-align: center;
         padding: 50px 20px;
-        border-bottom: 2px solid #800020; /* Thin burgundy accent line */
+        border-bottom: 2px solid #800020; 
     }
     .header h1 { margin: 0; font-size: 2.5em; font-family: 'Georgia', serif; }
     
@@ -25,16 +60,19 @@
         padding: 20px;
         max-width: 600px;
         margin: auto;
+        position: relative;
     }
     .card {
-        background: #ffffff; /* Keeping text background pure white */
+        background: #ffffff; 
         border-radius: 12px;
         padding: 25px;
         margin-bottom: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Soft shadow for depth */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
     }
-    h2 {
-        color: #800020; /* Burgundy Headers */
+    
+    .center-header {
+        text-align: center;
+        color: #800020; 
         border-bottom: 2px solid #f8e6e9;
         padding-bottom: 10px;
         margin-top: 0;
@@ -42,6 +80,11 @@
         font-size: 1.1em;
         letter-spacing: 1px;
     }
+
+    .details-box {
+        text-align: center;
+    }
+
     ul { list-style: none; padding: 0; }
     li { 
         margin-bottom: 12px; 
@@ -51,7 +94,6 @@
         padding-bottom: 5px; 
     }
     
-    /* Photography List - Centered and Standalone */
     .photo-list li {
         display: block;
         text-align: center;
@@ -62,10 +104,21 @@
     .theme-line {
         display: block;
         font-weight: bold;
-        margin-top: 5px;
-        color: #333;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: #800020; 
         border-bottom: none;
         text-align: center;
+        font-size: 1.1em;
+    }
+
+    .centered-important {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        color: #800020;
+        border-bottom: none;
+        margin: 15px 0;
     }
 
     .indent-sub { padding-left: 20px; border-bottom: none; font-style: italic; color: #666; }
@@ -82,34 +135,37 @@
 </head>
 <body>
 
+<div class="bg-image left-bg"></div>
+<div class="bg-image right-bg"></div>
+
 <div class="header">
     <h1>Kindness & Precious</h1>
     <p style="text-transform: uppercase; letter-spacing: 2px;">Wedding Program</p>
 </div>
 
 <div class="section">
-    <div class="card">
-        <h2>The Details</h2>
+    <div class="card details-box">
+        <h2 class="center-header">The Details</h2>
         <p>📅 <strong>9th May 2026</strong></p>
         <p>📍 Ofada Road, Opp B Pipples Event Center, Mowe, Ogun State</p>
     </div>
 
     <div class="card">
-        <h2>Program Flow</h2>
+        <h2 class="center-header">Program Flow</h2>
         <ul>
-            <li><span>Chairman’s Opening Remarks:</span> <span>Bro. E. Atewolara</span></li>
-            <li><span>Opening Song:</span> <span>Song 131</span></li>
-            <li><span>Opening Prayer:</span> <span>Bro. Peter Ohikilome</span></li>
-            <li><span>Marriage Discourse:</span> <span>Bro. Confidence Enyia</span></li>
+            <li><span>Chairman’s Opening Remarks:</span> <span><strong>Bro. E. Atewolara</strong></span></li>
+            <li><span>Opening Song:</span> <span><strong>Song 131</strong></span></li>
+            <li><span>Opening Prayer:</span> <span><strong>Bro. Peter Ohikilome</strong></span></li>
+            <li><span>Marriage Discourse:</span> <span><strong>Bro. Confidence Enyia</strong></span></li>
             <li class="theme-line">Theme: "Honorable Marriage in God’s Sight"</li>
-            <li><span>Closing Remarks:</span> <span>Bro. E. Atewolara</span></li>
-            <li><span>Closing Song:</span> <span>Song 132</span></li>
-            <li><span>Closing Prayer:</span> <span>Bro. Confidence Enyia</span></li>
+            <li><span>Closing Remarks:</span> <span><strong>Bro. E. Atewolara</strong></span></li>
+            <li><span>Closing Song:</span> <span><strong>Song 132</strong></span></li>
+            <li><span>Closing Prayer:</span> <span><strong>Bro. Abel Amubieya</strong></span></li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>Order Of Photograph</h2>
+        <h2 class="center-header">Order Of Photograph 📸</h2>
         <ul class="photo-list">
             <li>Bride Alone</li>
             <li>Groom Alone</li>
@@ -131,31 +187,33 @@
     </div>
 
     <div class="card">
-        <h2>Reception Programme</h2>
+        <h2 class="center-header">Reception Programme</h2>
         <ul>
-            <li><span>Introduction:</span> <span>By the MC</span></li>
-            <li><span>Director of Feast:</span> <span>Bro. Samson Umogu</span></li>
+            <li><span>Introduction:</span> <span><strong>By the MC</strong></span></li>
+            <li><span>Director of Feast:</span> <span><strong>Bro. Samson Umogu</strong></span></li>
             
-            <li><span>Entrance:</span> <span>Bride's Family</span></li>
-            <li><span>Entrance:</span> <span>Groom's Family</span></li>
+            <li><span>Entrance:</span> <span><strong>Bride's Family</strong></span></li>
+            <li><span>Entrance:</span> <span><strong>Groom's Family</strong></span></li>
             
-            <li><span>The Grand Entrance:</span> <span>"The Couple - Here They Come!"</span></li>
-            <li><span>Opening Prayer:</span> <span>Bro. Femi Kukoye</span></li>
+            <li><span>The Grand Entrance:</span> <span><strong>"The Couple - Here They Come!"</strong></span></li>
+            <li><span>Opening Prayer:</span> <span><strong>Bro. Femi Kukoye</strong></span></li>
             <li><span>Director's Opening Speech</span></li>
-            <div class="spacer"></div>
-            <li style="border-bottom: none; font-weight: bold; color: #800020;">The Cutting Of Cake: "Let’s Watch Them Do It!"</li>
-            <div class="spacer"></div>
-            <li style="border-bottom: none; font-weight: bold; color: #800020;">Refreshment & Entertainment</li>
+
+            <li class="centered-important">The Cutting Of Cake: "Let’s Watch Them Do It!"</li>
+
+            <li class="centered-important">Refreshment & Entertainment</li>
+
             <li><span>Groom on the Mic 🎤</span></li>
-            <li><span>Karaoke: Guest Performance</span></li>
+            <li><span>Karaoke:</span> <span><strong>Guest Performance</strong></span></li>
             <li><span>The Couple's First Dance</span></li>
             <li class="indent-sub">Dancing with Older Couples</li>
             <li class="indent-sub">Dancing with Younger Couples</li>
-            <div class="spacer"></div>
-            <li style="border-bottom: none; font-weight: bold; color: #800020;">The Conclusion</li>
-            <li><span>Vote of Thanks:</span> <span>The Groom</span></li>
+            
+            <li class="centered-important">The Conclusion</li>
+
+            <li><span>Vote of Thanks:</span> <span><strong>The Groom</strong></span></li>
             <li><span>Director's Closing Speech</span></li>
-            <li><span>Closing Prayer:</span> <span>Bro. Segun Ikotun</span></li>
+            <li><span>Closing Prayer:</span> <span><strong>Bro. Segun Ikotun</strong></span></li>
         </ul>
     </div>
 
